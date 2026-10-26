@@ -1,0 +1,867 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tari Lesta | Purple Anime World 💜</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap");
+
+      :root {
+        --purple: #8b5cc7;
+        --deep: #593c79;
+        --pink: #f3c7ed;
+        --light: #fbf5ff;
+        --text: #574469;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: "Quicksand", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 10% 15%, #f4dafa, transparent 35%),
+          radial-gradient(circle at 90% 80%, #e5d8ff, transparent 35%),
+          linear-gradient(135deg, #fff8ff, #f2e8ff);
+        overflow-x: hidden;
+      }
+
+      button,
+      a {
+        font: inherit;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: none;
+        padding: 25px 16px;
+        position: relative;
+        isolation: isolate;
+      }
+
+      .page.active {
+        display: flex;
+        flex-direction: column;
+        animation: pageIn 0.55s ease both;
+      }
+
+      @keyframes pageIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .navbar {
+        width: min(100%, 950px);
+        margin: 0 auto 25px;
+        padding: 16px 22px;
+        border: 1px solid #e7d4f5;
+        border-radius: 24px;
+        background: #ffffffd9;
+        box-shadow: 0 8px 25px #8060a219;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--purple);
+      }
+
+      .nav-label {
+        font-size: 12px;
+        color: #9479a9;
+      }
+
+      .content {
+        width: min(100%, 950px);
+        margin: auto;
+      }
+
+      /* HALAMAN 1 */
+
+      .hero {
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 35px;
+        padding: 30px;
+        border: 1px solid #e9d6f7;
+        background: #ffffffc9;
+        border-radius: 32px;
+        box-shadow: 0 18px 45px #77519d16;
+      }
+
+      .hero-image {
+        position: relative;
+      }
+
+      .anime {
+        width: 100%;
+        max-width: 340px;
+        height: 390px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 48% 48% 28px 28px;
+        border: 7px solid white;
+        outline: 2px solid #e7c9fa;
+        box-shadow: 0 15px 30px #8057a52c;
+        animation: animeFloat 3s ease-in-out infinite;
+      }
+
+      @keyframes animeFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-1deg);
+        }
+        50% {
+          transform: translateY(-9px) rotate(1deg);
+        }
+      }
+
+      .sticker {
+        position: absolute;
+        font-size: 35px;
+        animation: bob 2.5s ease-in-out infinite;
+      }
+
+      .sticker.heart {
+        top: 6%;
+        right: 0;
+      }
+
+      .sticker.star {
+        bottom: 7%;
+        left: 0;
+        animation-delay: 0.7s;
+      }
+
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-8deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(8deg);
+        }
+      }
+
+      .eyebrow {
+        display: inline-block;
+        background: #f4e8ff;
+        color: #8556b2;
+        border-radius: 50px;
+        padding: 9px 15px;
+        font-size: 12px;
+        font-weight: 700;
+        margin-bottom: 22px;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 5vw, 48px);
+        line-height: 1.25;
+        color: var(--deep);
+        margin-bottom: 16px;
+      }
+
+      .hero h1 span {
+        color: #b26cce;
+      }
+
+      .hero p {
+        font-size: 14px;
+        line-height: 1.9;
+        margin-bottom: 18px;
+      }
+
+      .pill {
+        display: inline-block;
+        margin: 4px;
+        padding: 8px 13px;
+        border-radius: 50px;
+        background: #f8e8fb;
+        color: #8956a5;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .arrow-btn {
+        margin-top: 15px;
+        border: 1px solid #c8a3e6;
+        background: linear-gradient(135deg, #c6a1ef, #f0c8ee);
+        color: #503366;
+        border-radius: 50px;
+        padding: 10px 12px 10px 22px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+        box-shadow: 0 8px 22px #9b70be30;
+        transition: 0.25s;
+      }
+
+      .arrow-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px #9b70be40;
+      }
+
+      .arrow-icon {
+        display: grid;
+        place-items: center;
+        width: 43px;
+        height: 43px;
+        border-radius: 50%;
+        background: #8050ae;
+        color: white;
+        font-size: 25px;
+        animation: arrowMove 1.2s infinite;
+      }
+
+      @keyframes arrowMove {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(5px);
+        }
+      }
+
+      .hint {
+        margin-top: 17px;
+        font-size: 11px;
+        color: #9a80ac;
+      }
+
+      /* HALAMAN 2 */
+
+      .profile-card {
+        background: #ffffffdf;
+        border: 1px solid #e8d5f4;
+        border-radius: 30px;
+        padding: clamp(20px, 4vw, 36px);
+        box-shadow: 0 15px 40px #8057a51c;
+      }
+
+      .profile-header {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+      .profile-photo {
+        width: 135px;
+        height: 135px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        padding: 5px;
+        background: linear-gradient(135deg, #bb91ed, #f4c8ec);
+        box-shadow: 0 8px 20px #9970bc30;
+        animation: animeFloat 3s ease-in-out infinite;
+      }
+
+      .profile-header h2 {
+        margin-top: 15px;
+        color: var(--deep);
+        font-size: 29px;
+      }
+
+      .profile-header p {
+        color: #9b77ad;
+        font-size: 13px;
+        margin-top: 7px;
+      }
+
+      .section-title {
+        color: #8755af;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .details {
+        background: #fcf7ff;
+        border: 1px solid #eadcf5;
+        border-radius: 20px;
+        padding: 8px 20px;
+      }
+
+      .detail-row {
+        display: grid;
+        grid-template-columns: 32px 100px 1fr;
+        gap: 10px;
+        padding: 15px 0;
+        border-bottom: 1px dashed #e5d4f0;
+        align-items: start;
+        font-size: 14px;
+        line-height: 1.8;
+      }
+
+      .detail-row:last-child {
+        border-bottom: none;
+      }
+
+      .detail-label {
+        font-weight: 700;
+        color: #8755af;
+      }
+
+      .detail-value {
+        overflow-wrap: anywhere;
+      }
+
+      .about {
+        margin-top: 22px;
+        padding: 22px;
+        border-radius: 20px;
+        background: linear-gradient(135deg, #f9edff, #fff2fa);
+        line-height: 1.9;
+        font-size: 14px;
+      }
+
+      .about h3 {
+        color: #8755af;
+        margin-bottom: 8px;
+      }
+
+      /* BONEKA BERGERAK */
+
+      .doll-area {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin: 20px 0;
+        padding: 18px;
+        background: #fcf5ff;
+        border-radius: 20px;
+        text-align: center;
+      }
+
+      .doll {
+        display: inline-block;
+        font-size: 66px;
+        transform-origin: bottom center;
+        animation: dollDance 2.5s ease-in-out infinite;
+      }
+
+      .doll:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+
+      @keyframes dollDance {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-7deg);
+        }
+        25% {
+          transform: translateY(-10px) rotate(7deg);
+        }
+        50% {
+          transform: translateY(-3px) rotate(-4deg);
+        }
+        75% {
+          transform: translateY(-12px) rotate(8deg);
+        }
+      }
+
+      .doll-caption {
+        max-width: 230px;
+        color: #8655a9;
+        font-size: 13px;
+        line-height: 1.8;
+      }
+
+      /* SOSMED */
+
+      .social-title {
+        text-align: center;
+        color: #8755af;
+        margin: 27px 0 15px;
+        font-size: 21px;
+      }
+
+      .socials {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .social-card {
+        min-width: 0;
+        padding: 18px 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        border-radius: 18px;
+        border: 1px solid #e9d8f5;
+        background: #fffaff;
+        color: #5c476e;
+        text-decoration: none;
+        transition: 0.25s;
+      }
+
+      .social-card:hover {
+        transform: translateY(-5px);
+        background: #f4e7ff;
+        box-shadow: 0 8px 18px #8057a51c;
+      }
+
+      .social-card img {
+        width: 35px;
+        height: 35px;
+      }
+
+      .social-card strong {
+        font-size: 13px;
+      }
+
+      .social-card small {
+        font-size: 10px;
+        overflow-wrap: anywhere;
+        text-align: center;
+      }
+
+      .motto {
+        text-align: center;
+        background: linear-gradient(135deg, #f3e2ff, #ffeafa);
+        border-radius: 20px;
+        padding: 23px 15px;
+        margin-top: 22px;
+        line-height: 1.9;
+        font-size: 14px;
+      }
+
+      .motto h3 {
+        color: #8050ae;
+        margin-bottom: 8px;
+      }
+
+      .back-btn {
+        display: block;
+        margin: 22px auto 0;
+        border: 1px solid #d9c1ed;
+        background: white;
+        color: #8050ae;
+        padding: 12px 21px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: 0.25s;
+      }
+
+      .back-btn:hover {
+        background: #f4e7ff;
+        transform: translateY(-2px);
+      }
+
+      footer {
+        text-align: center;
+        padding: 24px 10px 5px;
+        color: #967baa;
+        font-size: 12px;
+        line-height: 2;
+      }
+
+      /* LOVE MELAYANG */
+
+      .love-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 50;
+      }
+
+      .love {
+        position: absolute;
+        bottom: -40px;
+        opacity: 0;
+        animation: loveFloat var(--duration, 7s) linear forwards;
+      }
+
+      @keyframes loveFloat {
+        0% {
+          transform: translateY(0) rotate(0) scale(0.6);
+          opacity: 0;
+        }
+        15% {
+          opacity: 0.9;
+        }
+        100% {
+          transform: translateY(-110vh) rotate(35deg) scale(1.3);
+          opacity: 0;
+        }
+      }
+
+      .pulse-heart {
+        display: inline-block;
+        animation: heartbeat 1s ease-in-out infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.25);
+        }
+        45% {
+          transform: scale(1);
+        }
+        65% {
+          transform: scale(1.18);
+        }
+      }
+
+      @media (max-width: 680px) {
+        .navbar {
+          padding: 14px;
+        }
+
+        .brand {
+          font-size: 15px;
+        }
+
+        .nav-label {
+          font-size: 10px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 23px 17px;
+          gap: 25px;
+        }
+
+        .hero-image {
+          grid-row: 1;
+        }
+
+        .hero-text {
+          grid-row: 2;
+        }
+
+        .anime {
+          height: 310px;
+          max-width: 260px;
+        }
+
+        .detail-row {
+          grid-template-columns: 25px 75px 1fr;
+          gap: 7px;
+          font-size: 12px;
+        }
+
+        .socials {
+          grid-template-columns: 1fr;
+        }
+
+        .social-card {
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 14px;
+        }
+
+        .social-card small {
+          margin-left: auto;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="love-layer" id="loveLayer" aria-hidden="true"></div>
+
+    <!-- HALAMAN 1 -->
+    <section class="page active" id="page1">
+      <nav class="navbar">
+        <div class="brand">💜 Tari's Space</div>
+        <span class="nav-label">MY LITTLE WORLD ✨</span>
+      </nav>
+
+      <main class="content">
+        <div class="hero">
+          <div class="hero-image">
+            <img
+              class="anime"
+              src="pictures/animeungu.png"
+              alt="Ilustrasi anime Tari Lesta"
+              onerror="
+                this.onerror = null;
+                this.src =
+                  'https://placehold.co/500x600/f0e1ff/8050ae?text=Anime+Ungu';
+              "
+            />
+
+            <span class="sticker heart">💗</span>
+            <span class="sticker star">✨</span>
+          </div>
+
+          <div class="hero-text">
+            <div class="eyebrow">🌷 WELCOME TO MY WORLD</div>
+
+            <h1>
+              Ingin mengenal<br />
+              <span>Tari Lesta?</span>
+              <span class="pulse-heart">💜</span>
+            </h1>
+
+            <p>
+              Ada cerita kecil, mimpi besar, dan perjalanan yang ingin aku
+              bagikan kepadamu. ♡
+            </p>
+
+            <div>
+              <span class="pill">🎀 My Story</span>
+              <span class="pill">💻 IT Student</span>
+              <span class="pill">🌸 Keep Growing</span>
+            </div>
+
+            <button class="arrow-btn" id="nextBtn">
+              <span>Klik panah untuk mengenalku</span>
+              <span class="arrow-icon">➜</span>
+            </button>
+
+            <div class="hint">
+              Klik panah untuk membuka halaman data diri 💌
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        Made with <span class="pulse-heart">💗</span> by Tari Lesta
+      </footer>
+    </section>
+
+    <!-- HALAMAN 2 -->
+    <section class="page" id="page2">
+      <nav class="navbar">
+        <div class="brand">💜 My Profile</div>
+        <span class="nav-label">GET TO KNOW ME 🌸</span>
+      </nav>
+
+      <main class="content">
+        <article class="profile-card">
+          <header class="profile-header">
+            <img
+              class="profile-photo"
+              src="pictures/animeungu.png"
+              alt="Foto anime Tari Lesta"
+              onerror="
+                this.onerror = null;
+                this.src =
+                  'https://placehold.co/300x300/f0e1ff/8050ae?text=Tari+Lesta';
+              "
+            />
+
+            <h2>Tari Lesta <span class="pulse-heart">💗</span></h2>
+            <p>Mahasiswa Teknologi Informasi 💻</p>
+          </header>
+
+          <h3 class="section-title">🌷 Data Diriku</h3>
+
+          <div class="details">
+            <div class="detail-row">
+              <span>👩🏻</span>
+              <span class="detail-label">Nama</span>
+              <span class="detail-value">Tari Lesta</span>
+            </div>
+
+            <div class="detail-row">
+              <span>📍</span>
+              <span class="detail-label">Alamat</span>
+              <span class="detail-value">Yogyakarta, Indonesia</span>
+            </div>
+
+            <div class="detail-row">
+              <span>🎓</span>
+              <span class="detail-label">Status</span>
+              <span class="detail-value">Mahasiswa Teknologi Informasi</span>
+            </div>
+
+            <div class="detail-row">
+              <span>🌱</span>
+              <span class="detail-label">Prinsip</span>
+              <span class="detail-value"
+                >Bersyukur, terus belajar, dan berkembang.</span
+              >
+            </div>
+          </div>
+
+          <div class="about">
+            <h3>💌 Sedikit Tentang Aku</h3>
+            <p>
+              Halo! Aku Tari Lesta, seseorang yang terus belajar, bertumbuh, dan
+              mencoba menjadi versi diriku yang lebih baik. Aku percaya bahwa
+              setiap langkah kecil tetap berarti.
+            </p>
+            <br />
+            <p>
+              “Tidak perlu menjadi sempurna untuk memulai. Teruslah melangkah,
+              karena setiap proses punya waktunya.”
+              <span class="pulse-heart">💗</span>
+            </p>
+          </div>
+
+          <div class="doll-area">
+            <span class="doll">🧸</span>
+            <p class="doll-caption">
+              Hai, kamu! <span class="pulse-heart">💗</span><br />
+              Jangan lupa tersenyum hari ini. Kamu hebat karena sudah berusaha!
+              🌷
+            </p>
+            <span class="doll">🐰</span>
+          </div>
+
+          <h3 class="social-title" id="social">💌 My Social Media</h3>
+
+          <div class="socials">
+            <a
+              class="social-card"
+              href="https://www.instagram.com/dhenylesta/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.simpleicons.org/instagram/E4405F"
+                alt="Logo Instagram"
+              />
+              <strong>Instagram</strong>
+              <small>@dhenylesta ↗</small>
+            </a>
+
+            <a
+              class="social-card"
+              href="https://www.tiktok.com/@dhenylesta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.simpleicons.org/tiktok/000000"
+                alt="Logo TikTok"
+              />
+              <strong>TikTok</strong>
+              <small>@dhenylesta ↗</small>
+            </a>
+
+            <a
+              class="social-card"
+              href="https://www.youtube.com/@Dhenylesta"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://cdn.simpleicons.org/youtube/FF0033"
+                alt="Logo YouTube"
+              />
+              <strong>YouTube</strong>
+              <small>@Dhenylesta ↗</small>
+            </a>
+          </div>
+
+          <div class="motto">
+            <h3>🌸 A Little Reminder</h3>
+            <p>
+              “Jangan bandingkan prosesmu dengan orang lain. Setiap orang punya
+              waktunya masing-masing.”
+            </p>
+            <p>
+              Keep learning, keep growing. <span class="pulse-heart">💗</span>
+            </p>
+          </div>
+
+          <button class="back-btn" id="backBtn">
+            ← Kembali ke halaman awal
+          </button>
+        </article>
+      </main>
+
+      <footer>Terima kasih sudah mengunjungi duniaku ♡</footer>
+    </section>
+
+    <script>
+      const page1 = document.getElementById("page1");
+      const page2 = document.getElementById("page2");
+      const nextBtn = document.getElementById("nextBtn");
+      const backBtn = document.getElementById("backBtn");
+      const loveLayer = document.getElementById("loveLayer");
+
+      function showPage(page) {
+        page1.classList.toggle("active", page === 1);
+        page2.classList.toggle("active", page === 2);
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function createLove(amount = 12) {
+        const symbols = ["💜", "💗", "💕", "💖", "♡", "✨", "🌸"];
+
+        for (let i = 0; i < amount; i++) {
+          const love = document.createElement("span");
+          love.className = "love";
+          love.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+          love.style.left = Math.random() * 100 + "%";
+          love.style.fontSize = 15 + Math.random() * 20 + "px";
+          love.style.setProperty("--duration", 4 + Math.random() * 4 + "s");
+          love.style.animationDelay = Math.random() * 1.5 + "s";
+
+          loveLayer.appendChild(love);
+          love.addEventListener("animationend", () => love.remove());
+        }
+      }
+
+      nextBtn.addEventListener("click", () => {
+        createLove(28);
+        showPage(2);
+      });
+
+      backBtn.addEventListener("click", () => {
+        createLove(12);
+        showPage(1);
+      });
+
+      // Love terus melayang selama halaman dibuka.
+      setInterval(() => createLove(1), 900);
+      createLove(10);
+    </script>
+  </body>
+</html>
