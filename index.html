@@ -3,337 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tari Lesta | My Personal Space</title>
+    <title>Tari's Projects 💜</title>
 
     <style>
       * {
-        margin: 0;
-        padding: 0;
         box-sizing: border-box;
       }
 
       body {
-        font-family: "Segoe UI", sans-serif;
-        background: linear-gradient(135deg, #fff5f5, #fce4ec, #fff0e6);
-        color: #563d42;
-        min-height: 100vh;
-        padding: 30px 16px;
-      }
-
-      .container {
-        width: 100%;
-        max-width: 850px;
-        margin: auto;
-      }
-
-      .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 18px 24px;
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 20px;
-        box-shadow: 0 5px 20px #dba9b522;
-        margin-bottom: 25px;
-      }
-
-      .logo {
-        font-size: 20px;
-        font-weight: bold;
-        color: #c45d7c;
-      }
-
-      .navbar span {
-        font-size: 13px;
-      }
-
-      .hero {
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid #f5d6df;
-        border-radius: 28px;
-        padding: 45px 25px;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f7eaff, #eaffef);
+        color: #574469;
         text-align: center;
-        box-shadow: 0 12px 35px #c77d9220;
-      }
-
-      .avatar {
-        width: 135px;
-        height: 135px;
-        margin: 0 auto 20px;
-        border-radius: 50%;
-        background: #f9dce6;
-        border: 5px solid white;
-        box-shadow: 0 0 0 3px #eab4c7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 65px;
+        padding: 40px 15px;
+        min-height: 100vh;
       }
 
       h1 {
-        font-size: clamp(30px, 6vw, 42px);
-        color: #bd5b7a;
-        margin-bottom: 12px;
+        color: #d93655;
       }
 
       .subtitle {
-        color: #8e6973;
-        margin-bottom: 20px;
         line-height: 1.8;
       }
 
-      .tag {
-        display: inline-block;
-        background: #fce4ec;
-        color: #a94f70;
-        padding: 8px 15px;
-        border-radius: 30px;
-        font-size: 13px;
-        margin: 4px;
-      }
-
-      .quote {
-        margin: 28px auto 0;
-        max-width: 540px;
-        font-style: italic;
-        line-height: 1.9;
-        color: #805b66;
-      }
-
-      .section {
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 22px;
-        padding: 28px;
-        margin-top: 22px;
-        border: 1px solid #f5d6df;
-        box-shadow: 0 8px 25px #c77d9215;
-      }
-
-      .section h2 {
-        color: #bd5b7a;
-        font-size: 22px;
-        margin-bottom: 18px;
-      }
-
-      .section p {
-        line-height: 1.9;
-      }
-
-      .socials {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 22px;
-      }
-
-      .social-card {
-        text-decoration: none;
-        color: #634750;
-        background: #fff7f9;
-        border: 1px solid #f2d5df;
+      .project {
+        display: block;
+        max-width: 440px;
+        margin: 15px auto;
+        padding: 18px;
+        background: white;
+        border: 1px solid #c8f2d2;
         border-radius: 18px;
-        padding: 22px 8px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
+        color: #d93655;
+        text-decoration: none;
+        font-weight: bold;
         transition: 0.25s;
-        min-width: 0;
+        box-shadow: 0 5px 15px #8b5cc715;
       }
 
-      .social-card:hover {
-        transform: translateY(-6px);
-        background: #fce4ec;
-        box-shadow: 0 8px 18px #bd5b7a22;
-      }
-
-      .social-card img {
-        width: 38px;
-        height: 38px;
-      }
-
-      .social-card strong {
-        font-size: 14px;
-      }
-
-      .social-card small {
-        color: #987681;
-        font-size: 11px;
-        overflow-wrap: anywhere;
-        text-align: center;
-      }
-
-      .motto {
-        text-align: center;
-        background: #f9e0e8;
-        border-radius: 20px;
-        padding: 25px 18px;
-        margin-top: 22px;
-        line-height: 1.9;
-      }
-
-      .motto h2 {
-        font-size: 19px;
-        margin-bottom: 8px;
+      .project:hover {
+        background: #f1fff4;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px #8b5cc725;
       }
 
       footer {
-        text-align: center;
-        padding: 28px 10px 10px;
-        color: #987681;
+        margin-top: 30px;
+        color: #65ad7a;
         font-size: 13px;
-        line-height: 2;
-      }
-
-      @media (max-width: 480px) {
-        body {
-          padding: 16px 10px;
-        }
-
-        .hero {
-          padding: 35px 15px;
-        }
-
-        .section {
-          padding: 22px 16px;
-        }
-
-        .socials {
-          grid-template-columns: 1fr;
-        }
-
-        .social-card {
-          flex-direction: row;
-          justify-content: flex-start;
-          padding: 16px;
-        }
-
-        .social-card small {
-          margin-left: auto;
-        }
       }
     </style>
   </head>
 
   <body>
-    <main class="container">
-      <nav class="navbar">
-        <div class="logo">Tari's Space ♡</div>
-        <span>My Personal Website 🌷</span>
-      </nav>
+    <h1>🎀 Welcome to Tari's Projects</h1>
+    <p class="subtitle">
+      Kumpulan website dan proyek yang aku buat 💗<br />
+      Be grateful. Keep learning. Keep growing. ♡
+    </p>
 
-      <header class="hero">
-        <div class="avatar" aria-label="Ilustrasi bunga">🌸</div>
+    <a class="project" href="index1.html">💜 Proyek 1 — Profil Anime</a>
+    <a class="project" href="index2.html">🌸 Proyek 2</a>
+    <a class="project" href="index3.html">💻 Proyek 3</a>
+    <a class="project" href="index4.html">🎀 Proyek 4</a>
+    <a class="project" href="index5.html">🌷 Proyek 5</a>
+    <a class="project" href="index6.html">🧸 Proyek 6</a>
+    <a class="project" href="index7.html">💖 Proyek 7</a>
+    <a class="project" href="index8.html">✨ Proyek 8</a>
 
-        <h1>Hi, I'm Tari Lesta!</h1>
-
-        <p class="subtitle">
-          Mahasiswa Teknologi Informasi 💻<br />
-          Dreamer • Learner • Growing Every Day
-        </p>
-
-        <span class="tag">🌷 Keep Growing</span>
-        <span class="tag">💻 Technology</span>
-        <span class="tag">🎀 Personal Space</span>
-
-        <p class="quote">
-          "Tidak harus menjadi sempurna hari ini. Cukup menjadi sedikit lebih
-          baik dari kemarin. Setiap langkah kecil tetap berarti." ♡
-        </p>
-      </header>
-
-      <section class="section">
-        <h2>🌸 About Me</h2>
-
-        <p>
-          Halo! Aku Tari Lesta, mahasiswa Teknologi Informasi yang sedang
-          belajar, berkarya, dan mengembangkan diri. Aku percaya bahwa setiap
-          proses memiliki cerita dan setiap tantangan adalah kesempatan untuk
-          bertumbuh.
-        </p>
-
-        <br />
-
-        <p>
-          Website ini adalah ruang kecil untuk mengenalku lebih dekat dan
-          menghubungkan akun media sosialku. Terima kasih sudah berkunjung! ♡
-        </p>
-      </section>
-
-      <section class="section">
-        <h2>💌 Let's Connect With Me!</h2>
-
-        <p>
-          Temukan aku di media sosial. Klik kartu di bawah untuk mengunjungi
-          akun masing-masing.
-        </p>
-
-        <div class="socials">
-          <a
-            class="social-card"
-            href="https://www.instagram.com/dhenylesta/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Kunjungi Instagram Tari Lesta"
-          >
-            <img
-              src="https://cdn.simpleicons.org/instagram/E4405F"
-              alt="Logo Instagram"
-            />
-
-            <strong>Instagram</strong>
-            <small>@dhenylesta</small>
-          </a>
-
-          <a
-            class="social-card"
-            href="https://www.tiktok.com/@dhenylesta"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Kunjungi TikTok Tari Lesta"
-          >
-            <img
-              src="https://cdn.simpleicons.org/tiktok/000000"
-              alt="Logo TikTok"
-            />
-
-            <strong>TikTok</strong>
-            <small>@dhenylesta</small>
-          </a>
-
-          <a
-            class="social-card"
-            href="https://www.youtube.com/@Dhenylesta"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Kunjungi YouTube Tari Lesta"
-          >
-            <img
-              src="https://cdn.simpleicons.org/youtube/FF0033"
-              alt="Logo YouTube"
-            />
-
-            <strong>YouTube</strong>
-            <small>@Dhenylesta</small>
-          </a>
-        </div>
-      </section>
-
-      <section class="motto">
-        <h2>🌷 A Little Reminder for Myself</h2>
-
-        <p>
-          "Jangan menyerah hanya karena perjalanan terasa sulit. Kamu sudah
-          melangkah sejauh ini. Terus belajar, tetap bersyukur, dan percaya pada
-          proses." ♡
-        </p>
-      </section>
-
-      <footer>
-        Made with ♡ by Tari Lesta
-        <br />
-        Thank you for being part of my little world ✨
-      </footer>
-    </main>
+    <footer>Made with 💗 by Tari Lesta</footer>
   </body>
 </html>
